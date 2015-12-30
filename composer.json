@@ -3,6 +3,7 @@
     "description": "Photo galleries management package for laravel",
     "type": "library",
     "license": "MIT",
+    "keywords": ["laravel"],
     "authors": [
         {
             "name": "facilinfo",
@@ -10,5 +11,10 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Facilinfo\\Gallery\\": "src/"
+        }
+    }
 }
