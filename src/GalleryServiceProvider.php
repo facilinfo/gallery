@@ -1,39 +1,29 @@
 <?php
 
-namespace Facilinfo\Gallery;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-use Illuminate\Support\ServiceProvider;
+class CreatePhotosCategoriesTable extends Migration {
 
-class GalleryServiceProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        // Route
-        include __DIR__.'/routes.php';
+    public function up() {
+        Schema::create('photos_categories', function(Blueprint $table) {
+            $table->increments('id');
 
-        // View
-        $this->loadViewsFrom(__DIR__ . '/Views', 'gallery');
+            $table->string('name', 255);
+            $table->string('slug', 255);
+            $table->integer('position')->unsigned;
 
-        // Migrations
-        $this->publishes([
-            __DIR__ . '/Migrations' => $this->app->databasePath() . '/migrations'
-        ], 'migrations');
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app['gallery'] = $this->app->share(function($app) {
-            return new Gallery;
+            $table->timestamps();
         });
     }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down() {
+        Schema::drop('photos_categories');
+    }
+
 }
