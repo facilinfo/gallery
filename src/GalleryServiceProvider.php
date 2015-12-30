@@ -18,6 +18,11 @@ class GalleryServiceProvider extends ServiceProvider
 
         // View
         $this->loadViewsFrom(__DIR__ . '/Views', 'gallery');
+
+        // Migrations
+        $this->publishes([
+            __DIR__ . '/Migrations' => $this->app->databasePath() . '/migrations'
+        ], 'migrations');
     }
 
     /**
