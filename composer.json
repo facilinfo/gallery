@@ -11,7 +11,9 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "laravelcollective/html": "5.1.*"
+    },
     "autoload": {
         "psr-4": {
             "Facilinfo\\Gallery\\": "src/"

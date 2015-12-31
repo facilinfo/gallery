@@ -14,6 +14,9 @@ class GalleryServiceProvider extends ServiceProvider
         include __DIR__.'/routes.php';
         // View
         $this->loadViewsFrom(__DIR__ . '/Views', 'gallery');
+        $this->publishes([
+            __DIR__ . '/Views' => $this->app->basePath() . '/resources/views'
+        ], 'views');
         // Migrations
         $this->publishes([
             __DIR__ . '/Migrations' => $this->app->databasePath() . '/migrations'
