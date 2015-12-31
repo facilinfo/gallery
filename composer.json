@@ -13,7 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "laravelcollective/html": " 5.2.*",
-        "intervention/image": "dev-master"
+        "intervention/image": "2.3.*"
     },
     "autoload": {
         "psr-4": {
