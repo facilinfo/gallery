@@ -10,7 +10,7 @@
             "email": "contact@facil-info.net"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "laravelcollective/html": " 5.2.*",
         "intervention/image": "dev-master"
