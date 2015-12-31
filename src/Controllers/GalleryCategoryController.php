@@ -29,4 +29,7 @@ class GalleryCategoryController extends Controller {
 
         return view('gallery.categories.create', compact('galleryCategory'));
     }
+    public function store(){
+dd('test');
+    }
 }

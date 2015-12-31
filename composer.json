@@ -12,12 +12,13 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "laravelcollective/html": "5.1.*",
+        "laravelcollective/html": " 5.2.*",
         "intervention/image": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Facilinfo\\Gallery\\": "src/"
+            "Facilinfo\\Gallery\\": "src/",
+            "Collective\\Html\\": "vendor/laravelcollective/html/src"
         }
     }
 }
