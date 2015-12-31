@@ -12,7 +12,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "laravelcollective/html": "5.1.*"
+        "laravelcollective/html": "5.1.*",
+        "intervention/image": "dev-master"
     },
     "autoload": {
         "psr-4": {
