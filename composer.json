@@ -17,8 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Facilinfo\\Gallery\\": "src/",
-            "Collective\\Html\\": "vendor/laravelcollective/html/src"
+            "Facilinfo\\Gallery\\": "src/"
         }
     }
 }
