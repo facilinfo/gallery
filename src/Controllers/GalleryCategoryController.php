@@ -48,4 +48,23 @@ class GalleryCategoryController extends Controller {
     public function destroy(){
         dd('sdfgsdfgsd');
     }
+
+    public function reposition(){
+        if(\Request::has('item'))
+        {
+            $i = 0;
+            foreach(\Request::get('item') as $id)
+            {
+                $i++;
+                $item = GalleryCategory::find($id);
+                $item->position = $i;
+                $item->save();
+            }
+            return \Response::json(array('success' => true));
+        }
+        else
+        {
+            return \Response::json(array('success' => false));
+        }
+    }
 }

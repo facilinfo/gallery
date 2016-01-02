@@ -19,6 +19,12 @@ class GalleryServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->publishes([
             __DIR__ . '/Views' => $this->app->basePath() . '/resources/views'
         ], 'views');
+
+        // Javascript
+        $this->publishes([
+            __DIR__ . '/Js' => $this->app->publicPath() . '/js'
+        ], 'migrations');
+
         // Migrations
         $this->publishes([
             __DIR__ . '/Migrations' => $this->app->databasePath() . '/migrations'
@@ -36,12 +42,6 @@ class GalleryServiceProvider extends \Illuminate\Support\ServiceProvider
         });
 
         //Load dependencies
-        /*$this->app->register(\Collective\Html\HtmlServiceProvider::class);
-
-        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-        $loader->alias('Form', '\Collective\Html\FormFacade');
-    */
-
         $this->app->register(\AdamWathan\BootForms\BootFormsServiceProvider::class);
 
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
