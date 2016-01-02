@@ -12,7 +12,6 @@ class GalleryServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-        //require '../vendor/autoload.php';
         // Route
         include __DIR__.'/routes.php';
         // View
@@ -31,25 +30,22 @@ class GalleryServiceProvider extends \Illuminate\Support\ServiceProvider
      * @return void
      */
     public function register()
-    {//require '../vendor/autoload.php';
-       /* $this->app['gallery'] = $this->app->share(function($app) {
+    {
+        $this->app['gallery'] = $this->app->share(function($app) {
             return new Gallery;
         });
-       */
 
-       //$this->app->register(P::class);
+        //Load dependencies
+        /*$this->app->register(\Collective\Html\HtmlServiceProvider::class);
 
-        $this->app->register(\Collective\Html\HtmlServiceProvider::class);
-
-        // Bind breadcrumbs package
-       /* $this->app->register(
-            'DaveJamesMiller\Breadcrumbs\ServiceProvider'
-        );
- */
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
         $loader->alias('Form', '\Collective\Html\FormFacade');
+    */
 
+        $this->app->register(\AdamWathan\BootForms\BootFormsServiceProvider::class);
 
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('BootForm', '\AdamWathan\BootForms\Facades\BootForm');
     }
 
 

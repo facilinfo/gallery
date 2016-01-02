@@ -24,8 +24,8 @@
 
                 <td class="handle">{{ $category->name}}</td>
                 <td class="text-right">
-                    <a class="btn btn-primary" href="{{ action('GalleryCategoryController@edit', $category) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editer</a>
-                    <a class="btn btn-danger" href="{{ action('GalleryCategoryController@destroy', $category) }}" data-method="delete" data-confirm="Voulez vous vraiment supprimer cette catégorie ?"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer</a>
+                    <a class="btn btn-primary" href="{{ action('\Facilinfo\Gallery\Controllers\GalleryCategoryController@edit', $category) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editer</a>
+                    <a class="btn btn-danger" href="{{ action('\Facilinfo\Gallery\Controllers\GalleryCategoryController@destroy', $category) }}" data-method="delete" data-confirm="Voulez vous vraiment supprimer cette catégorie ?"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer</a>
                 </td>
             </tr>
         @endforeach
