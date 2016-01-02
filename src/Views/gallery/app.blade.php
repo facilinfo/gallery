@@ -116,16 +116,15 @@
 			<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
-	<script type="text/javascript">
-		$.ajaxSetup({
-			headers: { 'X-CSRF-Token' : $('meta[name=csrf_token]').attr('content') }
-		});
-	</script>
-
-<script src="{{ asset('/js/gallery/destroy-confirm.js') }}"></script>
-@yield('additional-scripts')
+	<script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/js/jquery-ui-min.js') }}"></script>
+<script src="{{ asset('/js/laravel.js') }}"></script>
+<script type="text/javascript">
+	$.ajaxSetup({
+		headers: { 'X-CSRF-Token' : $('meta[name=csrf_token]').attr('content') }
+	});
+</script>
+	@yield('additional-scripts')
+	@yield('scripts')
 </body>
 </html>

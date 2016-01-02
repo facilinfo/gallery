@@ -52,9 +52,9 @@
                 return $helper;
             },
             'handle': '.handle',
-             update: function(event, ui){
+            update: function(event, ui){
 
-                $.post('{{ url('photo_category/reposition') }}', $(this).sortable('serialize'), function(data) {
+                $.post('{{ url('gallery/photo-categories/reposition') }}', $(this).sortable('serialize'), function(data) {
                     if(!data.success) {
                         //alert('bad');
                     }

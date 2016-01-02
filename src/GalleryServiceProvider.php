@@ -23,7 +23,7 @@ class GalleryServiceProvider extends \Illuminate\Support\ServiceProvider
         // Javascript
         $this->publishes([
             __DIR__ . '/Js' => $this->app->publicPath() . '/js'
-        ], 'migrations');
+        ], 'js');
 
         // Migrations
         $this->publishes([
