@@ -1,4 +1,6 @@
-<?php namespace Facilinfo\Gallery\Controllers;
+<?php
+
+namespace Facilinfo\Gallery\Controllers;
 
 use Illuminate\Routing\Controller as Controller;
 use Facilinfo\Gallery\Repositories\GalleryCategoryRepository;

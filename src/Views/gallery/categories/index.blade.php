@@ -54,14 +54,7 @@
             'handle': '.handle',
             update: function(event, ui){
 
-                $.post('{{ url('gallery/photo-categories/reposition') }}', $(this).sortable('serialize'), function(data) {
-                    if(!data.success) {
-                        //alert('bad');
-                    }
-                    else{
-
-                    }
-                }, 'json');
+                $.post('{{ url('gallery/photo-categories/reposition') }}', $(this).sortable('serialize'), function(data) {}, 'json');
             }
         });
         $(window).resize(function() {

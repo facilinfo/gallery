@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace Facilinfo\Gallery\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PhotoImage extends Model
+class GalleryImage extends Model
 {
     protected $table = 'photos_images';
 
