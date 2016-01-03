@@ -64,7 +64,9 @@ class GalleryCategoryRepository
         foreach ($files as $file) {
             is_dir($file) ? $this->removeDirectory($file) : unlink($file);
         }
-        rmdir($path);
+        if(is_dir($path)){
+            rmdir($path);
+        }
 
         return;
     }
@@ -73,12 +75,9 @@ class GalleryCategoryRepository
     {
         $category=GalleryCategory::where('id','=', $id)->firstOrFail();
 
-        $path=public_path().'/uploads/gallery_images/'.$category->slug;
+        $path=config('gallery.path').$category->slug;
 
-
-    $this->removeDirectory($path);
-
-
+        $this->removeDirectory($path);
 
         $this->getById($id)->delete();
     }

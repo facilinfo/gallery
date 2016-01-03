@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h4>Modifier {{ $photoCategory->name }}</h4>
+    <h4>Modifier {{ $galleryCategory->name }}</h4>
 
-    @include('photo_categories.form', ['action' => 'update'])
+    @include('gallery.categories.form', ['action' => 'update'])
 @endsection

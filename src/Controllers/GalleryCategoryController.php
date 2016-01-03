@@ -40,13 +40,23 @@ class GalleryCategoryController extends Controller {
     }
 
     public function show(){
-        dd('sdfgsdfgsd');
+      return redirect('errors.404');
     }
-    public function edit(){
-        dd('sdfgsdfgsd');
+    public function edit($id){
+        $galleryCategory = $this->GalleryCategoryRepository->getById($id);
+        return view('gallery.categories.edit',  compact('galleryCategory'));
     }
-    public function destroy(){
-        dd('sdfgsdfgsd');
+
+    public function update(GalleryCategoryUpdateRequest $request, $id){
+
+        $this->GalleryCategoryRepository->update($id, $request->all());
+
+        return redirect('gallery/photo-categories')->with('success', "La catégorie " . $request->input('name') . " a été modifiée.");
+    }
+    public function destroy($id){
+        $category=$this->GalleryCategoryRepository->getById($id);
+        $this->GalleryCategoryRepository->destroy($id);
+        return redirect('gallery/photo-categories')->with('success', "La catégorie " . $category->name . " a été supprimée.");
     }
 
     public function reposition(){
