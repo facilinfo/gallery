@@ -1,13 +1,17 @@
-@extends('app')
+@extends('gallery.app')
+
+@section('title')
+    Gérer les series de photos
+@endsection
 
 @section('active_tab')
-    <?php $tab='photos';?>
+    <?php $tab='gallery_series';?>
 @endsection
 
 @section('content')
 
 
-    <h1>Gérer les series</h1>
+    <h1>Gérer les series de photos</h1>
 
 
     <p class="text-right">

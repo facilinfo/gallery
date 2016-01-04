@@ -21,47 +21,55 @@ class GalleryCategoryController extends Controller {
     }
 
 
-    public function index() {
-
-
+    public function index()
+    {
         $galleryCategories = $this->GalleryCategoryRepository->get();
 
         return view('gallery.categories.index', compact('galleryCategories'));
     }
 
-    public function create(){
+    public function create()
+    {
         $galleryCategory= new GalleryCategory();
 
         return view('gallery.categories.create', compact('galleryCategory'));
     }
-    public function store(GalleryCategoryCreateRequest $request){
+
+    public function store(GalleryCategoryCreateRequest $request)
+    {
         $galleryCategory = $this->GalleryCategoryRepository->store($request->all());
         $galleryCategory->position = $this->GalleryCategoryRepository->getMaxPosition()+1;
 
         return redirect('gallery/photo-categories')->with('success',"La catégorie " .  $galleryCategory->name . " a été créée.");
     }
 
-    public function show(){
+    public function show()
+    {
       return redirect('errors.404');
     }
-    public function edit($id){
+
+    public function edit($id)
+    {
         $galleryCategory = $this->GalleryCategoryRepository->getById($id);
         return view('gallery.categories.edit',  compact('galleryCategory'));
     }
 
-    public function update(GalleryCategoryUpdateRequest $request, $id){
-
+    public function update(GalleryCategoryUpdateRequest $request, $id)
+    {
         $this->GalleryCategoryRepository->update($id, $request->all());
 
         return redirect('gallery/photo-categories')->with('success', "La catégorie " . $request->input('name') . " a été modifiée.");
     }
-    public function destroy($id){
+
+    public function destroy($id)
+    {
         $category=$this->GalleryCategoryRepository->getById($id);
         $this->GalleryCategoryRepository->destroy($id);
         return redirect('gallery/photo-categories')->with('success', "La catégorie " . $category->name . " a été supprimée.");
     }
 
-    public function reposition(){
+    public function reposition()
+    {
         if(\Request::has('item'))
         {
             $i = 0;

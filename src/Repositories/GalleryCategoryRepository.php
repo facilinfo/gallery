@@ -75,7 +75,7 @@ class GalleryCategoryRepository
     {
         $category=GalleryCategory::where('id','=', $id)->firstOrFail();
 
-        $path=config('gallery.path').$category->slug;
+        $path=public_path().config('gallery.path').$category->slug;
 
         $this->removeDirectory($path);
 

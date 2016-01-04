@@ -1,8 +1,13 @@
-@extends('app')
+@extends('gallery.app')
+
+@section('title')
+    Ajouter des photos
+@endsection
 
 @section('active_tab')
-    <?php $tab='photos';?>
+    <?php $tab='gallery_images';?>
 @endsection
+
 
 @section('content')
 

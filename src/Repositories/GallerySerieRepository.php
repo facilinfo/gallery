@@ -71,7 +71,7 @@ class GallerySerieRepository
         foreach ($files as $file) {
             is_dir($file) ? $this->removeDirectory($file) : unlink($file);
         }
-       if(is_dir($path)) rmdir($path) ;
+       if(is_dir($path)) rmdir($path);
 
         return;
     }
@@ -79,9 +79,10 @@ class GallerySerieRepository
     public function destroy($id)
 
     {
+
         $serie=GallerySerie::with('category')->where('id','=', $id)->firstOrFail();
 
-        $path=(config('gallery.path').$serie->category->slug.'/'.$serie->slug);
+        $path=public_path().config('gallery.path').$serie->category->slug.'/'.$serie->slug;
 
         $this->removeDirectory($path);
 

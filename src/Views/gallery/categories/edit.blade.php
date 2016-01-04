@@ -1,11 +1,15 @@
-@extends('app')
+@extends('gallery.app')
+
+@section('title')
+    Modifier la catégorie {{ $galleryCategory->name }}
+@endsection
 
 @section('active_tab')
-    <?php $tab='photos';?>
+    <?php $tab='gallery_categories';?>
 @endsection
 
 @section('content')
-    <h4>Modifier {{ $galleryCategory->name }}</h4>
+    <h4>Modifier la catégorie {{ $galleryCategory->name }}</h4>
 
     @include('gallery.categories.form', ['action' => 'update'])
 @endsection

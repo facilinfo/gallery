@@ -54,8 +54,6 @@ class GallerySerieController extends Controller
         return redirect('errors.404');
     }
 
-
-
     public function edit($id)
 
     {
@@ -64,8 +62,6 @@ class GallerySerieController extends Controller
 
         return view('gallery.series.edit',  compact('gallerySerie', 'galleryCategories'));
     }
-
-
 
     public function update(GallerySerieUpdateRequest $request, $id)
     {
@@ -82,17 +78,13 @@ class GallerySerieController extends Controller
         return redirect('gallery/photo-series')->with('success', "La série " . $gallerySerie->name . " a été supprimée.");
     }
 
-
-
     public function filter($category_id)
     {
-
         $gallerySeries = GallerySerie::where('category_id','=', $category_id)->orderBy('position')->get();
 
         $galleryCategories = GalleryCategory::lists('name','id');
 
         return view('gallery-series.index', compact('gallerySeries', 'galleryCategories', 'category_id'));
-
     }
 
     public function reposition(){

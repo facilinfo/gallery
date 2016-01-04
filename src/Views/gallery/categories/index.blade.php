@@ -1,10 +1,18 @@
-@extends('app')
+@extends('gallery.app')
+
+@section('title')
+    Gérer les catégories de photos
+@endsection
+
+@section('active_tab')
+    <?php $tab='gallery_categories';?>
+@endsection
 
 
 @section('content')
 
 
-    <h1>Gérer les catégories</h1>
+    <h1>Gérer les catégories de photos</h1>
 
     <p class="text-right">
         <a class="btn btn-primary" href="{{ action('\Facilinfo\Gallery\Controllers\GalleryCategoryController@create') }}">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter une catégorie</a>

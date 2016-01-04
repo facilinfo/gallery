@@ -1,18 +1,14 @@
-@extends('app')
+@extends('gallery.app')
+
+@section('title')
+    Gérer les photos
+@endsection
 
 @section('active_tab')
-    <?php $tab='images';?>
+    <?php $tab='gallery_images';?>
 @endsection
 
 @section('content')
-    <script>
-        $( '#form-filter').change( function() {
-            var id=$( '#serie_id' ).val();
-            var url=<?php echo "'".url('/')."/photo-images/filter/'";?>+id;
-            window.location=url;
-        } );
-    </script>
-
     <h1>Gérer les photos</h1>
 
     <div class="form-group">
