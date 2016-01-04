@@ -13,7 +13,7 @@
     "minimum-stability": "dev",
     "require": {
         "adamwathan/bootforms": "v0.7.*",
-        "intervention/image": "dev-master"
+        "intervention/image": "2.3.*"
 
 
     },
