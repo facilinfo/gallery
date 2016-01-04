@@ -1,50 +1,53 @@
 <?php
 
-namespace App\Repositories;
+namespace Facilinfo\Gallery\Repositories;
 
-use App\PhotoImage;
+use Facilinfo\Gallery\Models\GalleryImage;
 use Illuminate\Support\Facades\DB;
 
 
-class PhotoImageRepository
+class GalleryImageRepository
 {
 
-    protected $photoImage;
+    protected $galleryImage;
 
-    public function __construct(PhotoImage $photoImage)
+    public function __construct(GalleryImage $galleryImage)
     {
-        $this->photoImage = $photoImage;
+        $this->galleryImage = $galleryImage;
 
     }
 
     public function getMaxPosition(){
-        return $maxPosition = DB::table('photo_images')->max('position');
+        return $maxPosition = DB::table('gallery_images')->max('position');
     }
 
 
 
     public function get(){
-        return $photoImage=$this->photoImage->all()->sortBy('position');
+        return $galleryImage=$this->galleryImage->all()->sortBy('position');
     }
 
-    private function save(PhotoImage $photoImage, Array $inputs)
+    private function save(GalleryImage $galleryImage, Array $inputs)
     {
 
-        $photoImage->legend = $inputs['legend'];
-        if(!isset($photoImage->position)) $photoImage->position =$this->getMaxPosition()+1;
+        $galleryImage->title = $inputs['title'];
+        $galleryImage->legend = $inputs['legend'];
+        $galleryImage->alt = $inputs['alt'];
+        if(!isset($galleryImage->position)) $galleryImage->position =$this->getMaxPosition()+1;
 
-        $photoImage->save();
+        $galleryImage->save();
     }
 
 
 
       public function getById($id)
     {
-        return $this->photoImage->findOrFail($id);
+        return $this->galleryImage->findOrFail($id);
     }
 
     public function update($id, Array $inputs)
     {
+
         $this->save($this->getById($id), $inputs);
     }
 

@@ -95,4 +95,24 @@ class GallerySerieController extends Controller
 
     }
 
+    public function reposition(){
+        if(\Request::has('item'))
+        {
+            $i = 0;
+            foreach(\Request::get('item') as $id)
+            {
+                $i++;
+                $item = GallerySerie::find($id);
+                $item->position = $i;
+                $item->save();
+            }
+            return \Response::json(array('success' => true));
+        }
+        else
+        {
+            return \Response::json(array('success' => false));
+        }
+    }
+
+
 }

@@ -1,7 +1,4 @@
-<?php $action == "store" ? $method="Post" : $method="Put";
-//dd($method);
-
-?>
+<?php $action == "store" ? $method="Post" : $method="Put";?>
 
 {!! BootForm::open()->action(route('gallery.photo-categories.'.$action, $galleryCategory)) !!}
 {!! BootForm::bind($galleryCategory) !!}

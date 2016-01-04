@@ -8,7 +8,9 @@ class CreateGalleryImagesTable extends Migration
     public function up() {
         Schema::create('gallery_images', function(Blueprint $table) {
             $table->increments('id');
+            $table->string('title', 255);
             $table->string('legend', 255);
+            $table->string('alt', 255);
             $table->string('extension', 4);
             $table->string('path', 255);
             $table->boolean('first')->default(false);

@@ -34,7 +34,7 @@
                 <td class="handle">{{ $gallerySerie->active ? "oui" : "non"}}</td>
 
                 <td class="text-right">
-                    <a class="btn btn-default" href="{{ url('gallery-images/filter/'.$gallerySerie->id) }}"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Photos</a>
+                    <a class="btn btn-default" href="{{ url('gallery/photo-images/filter/'.$gallerySerie->id) }}"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Photos</a>
                     <a class="btn btn-primary" href="{{ action('\Facilinfo\Gallery\Controllers\GallerySerieController@edit', $gallerySerie) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editer</a>
                     <a class="btn btn-danger" href="{{ action('\Facilinfo\Gallery\Controllers\GallerySerieController@destroy', $gallerySerie) }}" data-method="delete" data-confirm="Voulez vous vraiment supprimer cette série ?"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer</a>
                 </td>
@@ -65,7 +65,7 @@
             'handle': '.handle',
              update: function(event, ui){
 
-                $.post('{{ url('photo_serie/reposition') }}', $(this).sortable('serialize'), function(data) {
+                $.post('{{ url('gallery/photo-series/reposition') }}', $(this).sortable('serialize'), function(data) {
                 }, 'json');
             }
         });

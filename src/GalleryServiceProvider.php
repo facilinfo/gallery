@@ -30,6 +30,11 @@ class GalleryServiceProvider extends \Illuminate\Support\ServiceProvider
             __DIR__ . '/Js' => $this->app->publicPath() . '/js'
         ], 'js');
 
+        // Images
+        $this->publishes([
+            __DIR__ . '/Img' => $this->app->publicPath() . '/img'
+        ], 'img');
+
         // Migrations
         $this->publishes([
             __DIR__ . '/Migrations' => $this->app->databasePath() . '/migrations'
@@ -47,9 +52,12 @@ class GalleryServiceProvider extends \Illuminate\Support\ServiceProvider
 
         //Load dependencies
         $this->app->register(\AdamWathan\BootForms\BootFormsServiceProvider::class);
-
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
         $loader->alias('BootForm', '\AdamWathan\BootForms\Facades\BootForm');
+
+        $this->app->register(\Intervention\Image\ImageServiceProvider::class);
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('Image', '\Intervention\Image\Facades\Image');
 
 
         $this->app['gallery'] = $this->app->share(function($app) {

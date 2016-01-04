@@ -12,7 +12,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "adamwathan/bootforms": "v0.7.*"
+        "adamwathan/bootforms": "v0.7.*",
+        "intervention/image": "dev-master"
+
 
     },
     "autoload": {

@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'path' => public_path().'/uploads/gallery/'
+    'path' => '/uploads/gallery/' //(in public)
 ];
