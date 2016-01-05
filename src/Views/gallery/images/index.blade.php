@@ -1,4 +1,4 @@
-@extends('gallery.app')
+*=@extends('gallery.app')
 
 @section('title')
     Gérer les photos
@@ -76,8 +76,7 @@
 @endsection
 
 @section('additional-scripts')
-
-
+    
     <script>
         $('table.db tbody').sortable({
             'containment': 'parent',
@@ -93,7 +92,6 @@
             },
             'handle': '.handle',
              update: function(event, ui){
-
                 $.post('{{ url('gallery/photo-images/reposition') }}', $(this).sortable('serialize'), function(data) {
                 }, 'json');
             }
@@ -116,18 +114,33 @@
                 });
             };
         }(jQuery));
+
     @foreach($galleryImages as $galleryImage)
     $("#legend_<?php echo $galleryImage->id;?>, #title_<?php echo $galleryImage->id;?>,  #alt_<?php echo $galleryImage->id;?>").bind("change paste", function() {
+
+                var scroll = $(document).scrollTop();
+
                 $("#DIVloading_<?php echo $galleryImage->id;?>").visible();
-                $("#form_<?php echo $galleryImage->id;?>").submit();
+                setTimeout(function () {
+                        $("#DIVloading_<?php echo $galleryImage->id;?>").invisible();
+                },1500);
 
+                //$("#DIVloading_<?php echo $galleryImage->id;?>").invisible();
+                var TITLE=$("#title_<?php echo $galleryImage->id;?>").val();
+                var LEGEND=$("#legend_<?php echo $galleryImage->id;?>").val();
+                var ALT=$("#alt_<?php echo $galleryImage->id;?>").val();
 
+                  $.ajax({
+                      type: 'post',
+                      url:"{{route('gallery.photo-images.update', $galleryImage)}}",
+                      headers: {"X-HTTP-Method-Override": "PUT"},
+                      data: {title: TITLE, legend:LEGEND, alt:ALT}
+                  });
 
-       });
+            });
+
 
     @endforeach
     </script>
-
-
 
 @endsection
