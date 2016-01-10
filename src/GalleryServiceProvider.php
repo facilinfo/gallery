@@ -25,10 +25,15 @@ class GalleryServiceProvider extends \Illuminate\Support\ServiceProvider
             __DIR__ . '/Views' => $this->app->basePath() . '/resources/views'
         ], 'views');
 
-        // Javascript
+        // Css
         $this->publishes([
             __DIR__ . '/Js' => $this->app->publicPath() . '/js'
         ], 'js');
+
+        // Javascript
+        $this->publishes([
+            __DIR__ . '/Css' => $this->app->publicPath() . '/css'
+        ], 'css');
 
         // Images
         $this->publishes([
