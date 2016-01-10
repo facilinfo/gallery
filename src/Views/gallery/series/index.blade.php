@@ -1,4 +1,4 @@
-@extends('gallery.app')
+@extends(config('gallery.views-template'))
 
 @section('title')
     Gérer les series de photos
