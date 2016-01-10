@@ -19,6 +19,6 @@ class GallerySerie extends Model
 
     public function images()
     {
-        return $this->hasMany('Facilinfo\Gallery\Models\GalleryImage');
+        return $this->hasMany('Facilinfo\Gallery\Models\GalleryImage', 'serie_id');
     }
 }

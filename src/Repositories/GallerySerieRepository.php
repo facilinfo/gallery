@@ -28,6 +28,10 @@ class GallerySerieRepository
        return $gallerySerie=$this->gallerySerie->all()->sortBy('position');
     }
 
+    public function getAll($category_id){
+        return $gallerySerie=$this->gallerySerie->with('images')->with('category')->where('category_id', $category_id)->get()->sortBy('position');
+    }
+
     private function save(GallerySerie $gallerySerie, Array $inputs)
     {
         $gallerySerie->name = $inputs['name'];
@@ -56,6 +60,7 @@ class GallerySerieRepository
     {
         return $this->gallerySerie->findOrFail($id);
     }
+
 
     public function update($id, Array $inputs)
     {

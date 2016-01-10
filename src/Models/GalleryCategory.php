@@ -18,7 +18,7 @@ class GalleryCategory extends Model {
 
     public function series()
     {
-        return $this->hasMany('Facilinfo\Gallery\Models\GallerySerie');
+        return $this->hasMany('Facilinfo\Gallery\Models\GallerySerie', 'category_id');
     }
 
 }

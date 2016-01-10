@@ -33,6 +33,13 @@ class GallerySerieController extends Controller
         return view('gallery.series.index',  compact('gallerySeries'));
     }
 
+    public function public_index($category_id)
+    {
+        $gallerySeries = $this->gallerySerieRepository->getAll($category_id);
+
+        return view(config('gallery.series-view'), compact('gallerySeries'));
+    }
+
     public function create()
     {
         $gallerySerie= new GallerySerie();

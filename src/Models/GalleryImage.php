@@ -13,6 +13,6 @@ class GalleryImage extends Model
 
     public function serie()
     {
-        return $this->belongsTo('App\PhotoSerie');
+        return $this->belongsTo('Facilinfo\Gallery\Models\GallerySerie');
     }
 }

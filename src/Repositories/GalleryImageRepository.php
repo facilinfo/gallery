@@ -33,6 +33,10 @@ class GalleryImageRepository
         return $galleryImage=$this->galleryImage->all()->sortBy('position');
     }
 
+    public function getAll($serie_id){
+        return $galleryImages=$this->galleryImage->with('serie')->where('serie_id', $serie_id)->get()->sortBy('position');
+    }
+
     private function save(GalleryImage $galleryImage, Array $inputs)
     {
 

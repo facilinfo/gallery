@@ -20,3 +20,10 @@ Route::group(['namespace' => 'Facilinfo\Gallery\Controllers', 'prefix'=>'gallery
     Route::post('photo-images/reposition', ['uses' =>'GalleryImageController@reposition']);
 
 });
+
+Route::group(['namespace' => 'Facilinfo\Gallery\Controllers', 'middleware' => 'web'], function()
+{
+    Route::get('photo-categories', ['uses' => 'GalleryCategoryController@public_index']);
+    Route::get('photo-series/{category}', ['uses' => 'GallerySerieController@public_index']);
+    Route::get('photo-images/{serie}', ['uses' => 'GalleryImageController@public_index']);
+});

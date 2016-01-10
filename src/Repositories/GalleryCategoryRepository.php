@@ -26,6 +26,10 @@ class GalleryCategoryRepository
         return $galleryCategory=$this->galleryCategory->all()->sortBy('position');
     }
 
+    public function getAll(){
+        return $galleryCategory=$this->galleryCategory->with('series.images')->get()->sortBy('position');
+    }
+
     private function save(GalleryCategory $galleryCategory, Array $inputs)
     {
 

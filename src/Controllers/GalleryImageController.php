@@ -27,6 +27,13 @@ class GalleryImageController extends Controller
        return view('errors.404');
     }
 
+    public function public_index($serie_id)
+    {
+        $galleryImages = $this->galleryImageRepository->getAll($serie_id);
+
+        return view(config('gallery.images-view'), compact('galleryImages'));
+    }
+
     public function create($serie_id)
     {
         $galleryImage = new GalleryImage();

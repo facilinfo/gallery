@@ -28,6 +28,13 @@ class GalleryCategoryController extends Controller {
         return view('gallery.categories.index', compact('galleryCategories'));
     }
 
+    public function public_index()
+    {
+        $galleryCategories = $this->GalleryCategoryRepository->getAll();
+
+        return view(config('gallery.categories-view'), compact('galleryCategories'));
+    }
+
     public function create()
     {
         $galleryCategory= new GalleryCategory();
