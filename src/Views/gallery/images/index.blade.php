@@ -1,4 +1,4 @@
-*=@extends('gallery.app')
+@extends('gallery.app')
 
 @section('title')
     Gérer les photos
@@ -76,7 +76,7 @@
 @endsection
 
 @section('additional-scripts')
-    
+
     <script>
         $('table.db tbody').sortable({
             'containment': 'parent',
